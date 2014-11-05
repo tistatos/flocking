@@ -9,11 +9,9 @@
 #include "engineUtils.h"
 #include "engine2D.h"
 
-using namespace glm;
-
 Engine2D::Engine2D()
 {
-	
+
 }
 
 bool Engine2D::init(GLFWwindow *window)
@@ -21,7 +19,7 @@ bool Engine2D::init(GLFWwindow *window)
 	mWindow = window;
 
 	glClearColor(0.0f, 1.0f, 1.0f, 0.0f);
-	glEnable(GL_DEPTH_TEST); 
+	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 
 	mProgramID = loadShader("basic.vert", "basic.frag");
@@ -31,7 +29,7 @@ bool Engine2D::init(GLFWwindow *window)
 
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
-	
+
 	setCamera(vec3(0.2f));
 	return true;
 }
@@ -96,7 +94,7 @@ void Engine2D::render(double dt)
 
 		glUniformMatrix4fv(mModelMatrixID, 1, GL_FALSE, &(mViewMatrix*(*iter)->getShape()->getModelMatrix())[0][0]);
 		glBindBuffer(GL_ARRAY_BUFFER, (*iter)->getVertexBuffer());
-	
+
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(
 			0,

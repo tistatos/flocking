@@ -1,5 +1,6 @@
 #ifndef __flock_h__
 #define __flock_h__
+
 /********************************************************************
 * @file flock.h
 * @author Erik Larsson

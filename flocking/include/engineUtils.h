@@ -5,18 +5,18 @@
 * @author Erik Larsson
 * @version 1.0
 * @section DESCRIPTION
-*  
+*
 *********************************************************************/
-#include <glew.h>
-#include <GLFW/glfw3.h>
-
-#include <stdio.h>
-#include <stdlib.h>
 #include <string>
-
 #include <vector>
 #include <iostream>
+#include <cstdlib>
 #include <fstream>
+
+#include <GL/glew.h>
+#include <GL/gl.h>
+#include <GLFW/glfw3.h>
+
 
 const float PI = 3.14159265358979323f;
 

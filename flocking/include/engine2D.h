@@ -18,7 +18,7 @@ class Engine2D
 {
 public:
 	Engine2D();
-	
+
 	bool init(GLFWwindow *window);
 	void destroy();
 
@@ -31,7 +31,7 @@ public:
 
 	void bindBuffers();
 	void deleteBuffers();
-	
+
 private:
 	char titlestring[64];
 	mat4 mViewMatrix;

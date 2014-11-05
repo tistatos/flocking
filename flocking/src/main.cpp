@@ -11,16 +11,17 @@
 
 #include "engine2D.h"
 #include "gameTimer.h"
-#include "birdGeometry.h";
+#include "birdGeometry.h"
 #include "flock.h"
+#define GLM_FORCE_RADIANS
 
-#define FLOCK_SIZE 30
+#define FLOCK_SIZE 100
 
 int main()
 {
 	Engine2D engine; //Graphics Engine
 	Flock flock; //Flocking logic
-	
+
 	//Setup window with glfw and Glew
 	const GLFWvidmode *vidmode;
 	GLFWwindow *window;
@@ -72,7 +73,7 @@ int main()
 
 	//initiate engine
 	engine.init(window);
-	
+
 	//create geometry for birds
 	Geometry bird = BirdGeometry();
 
@@ -97,7 +98,7 @@ int main()
 		fps = timer.getFPS();
 		sprintf(titlestring, "Flocking Demo, %.4f ms/frame (%.1f FPS)", dt, fps);
 		glfwSetWindowTitle(window, titlestring);
-		
+
 		//get keyboard events
 		glfwPollEvents();
 		//update flock

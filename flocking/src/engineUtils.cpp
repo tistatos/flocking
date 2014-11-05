@@ -3,7 +3,7 @@
 * @author Erik Larsson
 * @version 1.0
 * @section DESCRIPTION
-*  
+*
 *********************************************************************/
 #include "engineUtils.h"
 
@@ -64,7 +64,7 @@ GLuint loadShader(const char* vertexFile, const char* fragmentFile)
 	{
 		std::vector<char> vertexError(infoLog+1);
 		glGetShaderInfoLog(vertexShaderID, infoLog, NULL, &vertexError[0]);
-		printf("%s\n", vertexError);
+		//printf("%s\n", vertexError);
 	}
 
 	printf("Compiling Fragment file");
@@ -79,7 +79,7 @@ GLuint loadShader(const char* vertexFile, const char* fragmentFile)
 	{
 		std::vector<char> fragmentError(infoLog+1);
 		glGetShaderInfoLog(fragmentShaderID, infoLog, NULL, &fragmentError[0]);
-		printf("%s\n", fragmentError);
+		//printf("%s\n", fragmentError);
 	}
 
 	printf("Linking program\n");

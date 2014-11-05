@@ -10,17 +10,16 @@
 
 #include "shape.h"
 //Weights for behaviour
-#define SEPARATION_WEIGHT 0.11 
-#define ALIGMENT_WEIGHT 1
-#define COHESION_WEIGHT 1
+#define SEPARATION_WEIGHT 0.11
+#define ALIGMENT_WEIGHT 0.4
+#define COHESION_WEIGHT 0.5
 
 //radii for neighbours
 #define NEIGHBOUR_RADIUS .6
-#define DESIRED_SEPARATION 0.03
+#define DESIRED_SEPARATION 0.04
 
 #define MAX_SPEED 0.004
 
-using namespace glm;
 
 class Bird
 {
@@ -35,12 +34,12 @@ public:
 
 	void addVelocity();
 
-	vec2 separate(std::vector<Bird*> neighbours);
-	vec2 aligment(std::vector<Bird*> neighbours);
-	vec2 cohesion(std::vector<Bird*> neighbours);
+	glm::vec2 separate(std::vector<Bird*> neighbours);
+	glm::vec2 aligment(std::vector<Bird*> neighbours);
+	glm::vec2 cohesion(std::vector<Bird*> neighbours);
 
 private:
 	Shape *mShape;
-	vec2 mVelocity;
+	glm::vec2 mVelocity;
 };
 #endif // __bird_h__
