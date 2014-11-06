@@ -12,7 +12,6 @@
 #include "shape.h"
 #include "bufferObject.h"
 
-using namespace glm;
 
 class Engine2D
 {
@@ -26,15 +25,15 @@ public:
 	void render(double dt);
 	GLFWwindow *getWindow();
 	void add(Shape *s);
-	void setView(mat4 view);
-	void setCamera(vec3 camera);
+	void setView(glm::mat4 view);
+	void setCamera(glm::vec3 camera);
 
 	void bindBuffers();
 	void deleteBuffers();
 
 private:
 	char titlestring[64];
-	mat4 mViewMatrix;
+	glm::mat4 mViewMatrix;
 	GLFWwindow *mWindow;
 	std::vector<Shape*> mShapes;
 	std::vector<BufferObject* > mBuffers;

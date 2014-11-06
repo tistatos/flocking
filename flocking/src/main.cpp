@@ -13,9 +13,9 @@
 #include "gameTimer.h"
 #include "birdGeometry.h"
 #include "flock.h"
-#define GLM_FORCE_RADIANS
 
-#define FLOCK_SIZE 100
+#define FLOCK_SIZE 50
+
 
 int main()
 {

@@ -10,13 +10,14 @@
 
 #include "geometry.h"
 #include <gtc/matrix_transform.hpp>
-class Shape 
+class Shape
 {
 public:
 	Shape(Geometry *g);
 	~Shape();
 	Geometry* getGeometry();
 	glm::mat4 getModelMatrix();
+	void setModelMatrix(glm::mat4 matrix);
 	void scale(glm::vec3 scaleVec);
 	void translate(glm::vec3 translateVec);
 	void rotateZ(double theta);

@@ -30,7 +30,7 @@ bool Engine2D::init(GLFWwindow *window)
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
-	setCamera(vec3(0.2f));
+	setCamera(glm::vec3(0.2f));
 	return true;
 }
 
@@ -40,14 +40,14 @@ void Engine2D::destroy()
 	mWindow = NULL;
 }
 
-void Engine2D::setView(mat4 view)
+void Engine2D::setView(glm::mat4 view)
 {
 	mViewMatrix = view;
 }
 
-void Engine2D::setCamera(vec3 camera)
+void Engine2D::setCamera(glm::vec3 camera)
 {
-	setView(mat4(
+	setView(glm::mat4(
 		camera.x,	0.0f,		0.0f,		0.0f,
 		0.0f,		camera.y,	0.0f,		0.0f,
 		0.0f,		0.0f,		camera.z,	0.0f,
@@ -119,5 +119,3 @@ GLFWwindow *Engine2D::getWindow()
 {
 	return mWindow;
 }
-
-

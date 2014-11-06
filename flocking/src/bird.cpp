@@ -15,6 +15,13 @@ Bird::Bird(Shape* s)
 	mVelocity = glm::vec2((getRand())*MAX_SPEED,(getRand())*MAX_SPEED);
 	addVelocity();
 
+	glm::mat4 mMatrix = mShape->getModelMatrix();
+	mMatrix[3].x = -5.0f + 2*5.0f*getRand();
+	mMatrix[3].y = -5.0f + 2*5.0f*getRand();
+
+	mShape->setModelMatrix(mMatrix);
+
+
 }
 
 void Bird::update(double dt, glm::vec2 velocity)
@@ -28,20 +35,26 @@ void Bird::update(double dt, glm::vec2 velocity)
 	glm::vec2 pos = getPosition();
 	if(pos.y > 5.0f)
 	{
-		mVelocity.y = -mVelocity.y;
+		pos.y = -5.0f;
 	}
 	else if(pos.y < -5.0f)
 	{
-		mVelocity.y = -mVelocity.y;
+		pos.y = 5.0f;
 	}
 	if(pos.x > 5.0f)
 	{
-		mVelocity.x = -mVelocity.x;
+		pos.x = -5.0f;
 	}
 	else if(pos.x < -5.0f)
 	{
-		mVelocity.x = -mVelocity.x;
+		pos.x = 5.0f;
 	}
+
+	glm::mat4 mMatrix = mShape->getModelMatrix();
+	mMatrix[3].x = pos.x;
+	mMatrix[3].y = pos.y;
+
+	mShape->setModelMatrix(mMatrix);
 }
 
 glm::vec2 Bird::getPosition()
@@ -86,20 +99,20 @@ void Bird::addVelocity()
 
 glm::vec2 Bird::cohesion(std::vector<Bird*> neighbours)
 {
-	glm::vec2 sum = glm::vec2(0,0);
 	int count = 0;
 	glm::vec2 myPos = getPosition();
+	glm::vec2 sum = myPos;
 	std::vector<Bird*>::iterator iter;
 	for(iter=neighbours.begin(); iter!=neighbours.end(); iter++)
 	{
-		sum = (*iter)->getPosition();
+		sum += (*iter)->getPosition();
 		count ++;
 	}
 
 	if(count > 0)
 	{
 		sum /= (float)count;
-		glm::vec2 desired = myPos-sum;
+		glm::vec2 desired = sum-myPos;
 
 		float d = glm::length(desired);
 		if(d > 0.0f)
@@ -164,6 +177,7 @@ glm::vec2 Bird::separate(std::vector<Bird*> neighbours)
 			count ++;
 		}
 	}
+
 	if(count)
 	{
 		mean /= (float)count;

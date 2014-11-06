@@ -3,7 +3,7 @@
 * @author Erik Larsson
 * @version 1.0
 * @section DESCRIPTION
-*  
+*
 *********************************************************************/
 
 #include "shape.h"
@@ -41,4 +41,9 @@ void Shape::scale(glm::vec3 scalevec)
 glm::mat4 Shape::getModelMatrix()
 {
 	return mModelMatrix;
+}
+
+void Shape::setModelMatrix(glm::mat4 matrix)
+{
+	mModelMatrix = matrix;
 }

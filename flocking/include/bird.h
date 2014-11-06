@@ -9,17 +9,17 @@
 *********************************************************************/
 
 #include "shape.h"
+
 //Weights for behaviour
-#define SEPARATION_WEIGHT 0.11
-#define ALIGMENT_WEIGHT 0.4
-#define COHESION_WEIGHT 0.5
+#define SEPARATION_WEIGHT 0.003
+#define ALIGMENT_WEIGHT .7
+#define COHESION_WEIGHT .3
 
 //radii for neighbours
-#define NEIGHBOUR_RADIUS .6
-#define DESIRED_SEPARATION 0.04
+#define NEIGHBOUR_RADIUS .8
+#define DESIRED_SEPARATION 0.3
 
-#define MAX_SPEED 0.004
-
+#define MAX_SPEED 0.002
 
 class Bird
 {
