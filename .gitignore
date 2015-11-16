@@ -149,3 +149,9 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+
+flocking/bin
+flocking/CMakeCache.txt
+flocking/CMakeFiles/
+flocking/Makefile
+flocking/cmake_install.cmake
